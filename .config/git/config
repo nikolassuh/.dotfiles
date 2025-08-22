@@ -39,7 +39,7 @@
     showIncludeUntracked = true
 [status]
     showUntrackedFiles = all
-    short = true
+    # short = true
     showStash = true
     relativePaths = false # show path relative to git root, not to cwd
 
