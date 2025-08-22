@@ -1,6 +1,3 @@
---glob=!.git/*
-
 --colors=line:style:bold
-
 --smart-case
 
