@@ -1,0 +1,50 @@
+#!/bin/bash
+
+
+DOTFILES_DIR="$HOME/.dotfiles"
+DOT_LOCAL_BIN="$DOTFILES_DIR/.local/bin"
+DOT_CONFIG_DIR="$DOTFILES_DIR/.config"
+DOT_ZSHENV="$DOTFILES_DIR/.zshenv"
+
+
+function make_symlink() {
+  sudo ln -sFnv "$1" "$2"
+}
+
+function echo_function_header {
+  echo "==========================================="
+  echo $1
+  echo "==========================================="
+}
+
+
+function slink_dot_local_bin() {
+  echo_function_header "$DOT_LOCAL_BIN"
+  make_symlink "$DOT_LOCAL_BIN" "$HOME/.local/"
+  echo ""
+}
+
+function slink_zshenv() {
+  echo_function_header "$DOT_ZSHENV"
+  make_symlink "$DOT_ZSHENV" "$HOME/.zshenv"
+  echo ""
+}
+
+function slink_dot_config() {
+  echo_function_header "$DOT_CONFIG_DIR"
+  for dir in $(find "$DOT_CONFIG_DIR" -type d -depth 1); do
+    make_symlink "$dir" "$HOME/.config/"
+  done
+  echo ""
+}
+
+
+
+function main() {
+  slink_dot_local_bin
+  slink_zshenv
+  slink_dot_config
+}
+
+main
+
