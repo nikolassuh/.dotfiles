@@ -1,5 +1,5 @@
 DOTFILES_DIR="$HOME/.dotfiles"
-CONFIGS_DIR="$DOTFILES/.config"
+CONFIGS_DIR="$DOTFILES_DIR/.config"
 ZSH_CONFIG_DIR="$CONFIGS_DIR/zsh"
 
 fpath=($CONFIGS_DIR/zsh/plugins $fpath)
@@ -57,10 +57,10 @@ CONFIG_FILES=(
   vimify
 )
 for config_file in "${CONFIG_FILES[@]}"; do
-	file="$ZSH_CONFIG_DIR/$config_file.zsh"
-	if [[ -f "$file" ]] ; then
-		source "$file"
-	else
-		print "\033[1;33m$file not found\033[0m"
-	fi
+  file="$ZSH_CONFIG_DIR/$config_file.zsh"
+  if [[ -f "$file" ]] ; then
+    source "$file"
+  else
+    print "\033[1;33m$file not found\033[0m"
+  fi
 done
