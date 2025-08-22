@@ -1,0 +1,21 @@
+filetype plugin indent on
+syntax on
+
+let vim_dir = expand('~/.dotfiles/.config/vim/')
+
+exec 'source '..vim_dir..'options.vim'
+exec 'source '..vim_dir..'mappings.vim'
+exec 'source '..vim_dir..'status_line.vim'
+exec 'source '..vim_dir..'autocmds.vim'
+exec 'source '..vim_dir..'file_explorer.vim'
+
+exec 'source '..vim_dir..'plugins.vim'
+
+if filereadable(expand('~/.dotfiles/.config/vim/autoload/onedark.vim'))
+    \&& filereadable(expand('~/.dotfiles/.config/vim/colors/onedark.vim'))
+  colorscheme onedark
+  set background=dark
+else
+  colorscheme habamax
+endif
+
