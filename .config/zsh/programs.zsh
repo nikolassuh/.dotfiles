@@ -1,24 +1,8 @@
 # determines search program for fzf
 if command -v rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --ignore-file=~/.config/git/ignore .'
+  export FZF_DEFAULT_COMMAND='rg .'
 fi
 export FZF_COMPLETION_OPTS='--border --info=inline'
-
-
-# https://docs.brew.sh/Manpage#environment
-# install/update
-export HOMEBREW_NO_AUTO_UPDATE=1
-export HOMEBREW_DISPLAY_INSTALL_TIMES=1
-
-# cleanup all cached files older than this many days.
-export HOMEBREW_CLEANUP_MAX_AGE_DAYS=60  # default 120
-
-# misc
-export HOMEBREW_NO_ANALYTICS=1
-
-if type brew &>/dev/null; then
-  eval "$(brew shellenv)"
-fi
 
 
 export NVM_DIR="$HOME/.nvm"
@@ -31,4 +15,21 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - zsh)"
 
 
-export RIPGREP_CONFIG_PATH="$HOME/dotfiles/.config/rg/ripgreprc"
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/rg/ripgreprc"
+
+
+if [[ $(uname) == "Darwin" ]]; then
+  # For MacOS
+  # https://docs.brew.sh/Manpage#environment
+  export HOMEBREW_NO_AUTO_UPDATE=1
+  export HOMEBREW_DISPLAY_INSTALL_TIMES=1
+
+  # cleanup all cached files older than this many days.
+  export HOMEBREW_CLEANUP_MAX_AGE_DAYS=60  # default 120
+
+  # misc
+  export HOMEBREW_NO_ANALYTICS=1
+
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  export PATH="$PATH:/opt/homebrew/bin"
+fi
