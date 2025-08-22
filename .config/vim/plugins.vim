@@ -11,19 +11,22 @@ call plug#end()
 
 
 " FZF
-if isdirectory(expand('~').'/.fzf')
-  set rtp+=~/.fzf
+if isdirectory(expand('~').'/.dotfiles/.config/vim/plugged/fzf')
+  set rtp+=~/.dotfiles/.config/vim/plugged/fzf
 endif
 
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
-let g:fzf_preview_window = ['right,60%', 'ctrl-/']
+" Initialize configuration dictionary
+let g:fzf_vim = {}
+
+let g:fzf_vim.fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+let g:fzf_vim.fzf_preview_window = ['right,60%,<70(up,40%)', 'ctrl-/']
 " [Buffers] Jump to the existing window if possible
-let g:fzf_buffers_jump = 1
+let g:fzf_vim.fzf_buffers_jump = 1
 " Enable per-command history
 " - History files will be stored in the specified directory
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
 "   'previous-history' instead of 'down' and 'up'.
-let g:fzf_history_dir = expand('~').'/.local/share/fzf-history'
+let g:fzf_vim.fzf_history_dir = expand('~').'/.local/share/fzf-history'
 
 " Open buffers
 nnoremap <Leader>ls :Buffers<CR>

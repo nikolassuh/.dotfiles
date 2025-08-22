@@ -53,7 +53,7 @@ set foldlevel=99
 
 " set grep program
 if executable('rg')
-  set grepprg=rg\ --vimgrep\ --hidden\
+  set grepprg=rg\ --vimgrep
 endif
 
 " search

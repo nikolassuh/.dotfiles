@@ -1,7 +1,7 @@
 let mapleader = " "
 let maplocalleader = " "
 
-map <Leader>so :source ~/.config/vim/vimrc<CR>
+map <Leader>so :source ~/.dotfiles/.config/vim/vimrc<CR>
 
 " Jump between windows
 nnoremap <C-j> <C-w><C-j>
@@ -75,14 +75,17 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " jump to definition
 nnoremap <Leader>gd <C-]>
 
-" find in current file
-nnoremap <Leader>g :g//#<Left><Left>
+" grep/search for text
+nnoremap <Leader>gr :grep<Space>
 
 " Toggle ignorecase during searches
 nnoremap <Leader>ic :set ignorecase!<CR>
 
+" replace all in c window
+nnoremap <Leader>rc :cdo s//gc<Left><Left><Left>
+
 " list register
-nnoremap <Leader>ree :register<CR>
+nnoremap <Leader>reg :register<CR>
 
 " Open file system on the right in vertical split and resize
 "nnoremap <Leader>nt :Lexplore <bar> :vertical resize 40<CR>
@@ -112,20 +115,7 @@ nnoremap <Leader>sp :set spell!<CR>
 " substitutions
 nnoremap <Leader>S :%s/\<\><Left><Left>
 
-" tabs
-nnoremap <C-n> :tabnew<Space>
-nnoremap <Leader>1 1gt<CR>
-nnoremap <Leader>2 2gt<CR>
-nnoremap <Leader>3 3gt<CR>
-nnoremap <Leader>4 4gt<CR>
-nnoremap <Leader>5 5gt<CR>
-nnoremap <Leader>6 6gt<CR>
-nnoremap <Leader>7 7gt<CR>
-nnoremap <Leader>8 8gt<CR>
-nnoremap <Leader>9 9gt<CR>
-nnoremap <Leader>0 0gt<CR>
-
-" update does not change timestamp if no changes have been made
+" NOTE: update does not change timestamp if no changes have been made
 nnoremap <C-s> :update<CR>
 
 " save & quit all
