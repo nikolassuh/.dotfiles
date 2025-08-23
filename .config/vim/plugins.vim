@@ -9,6 +9,8 @@ Plug 'tpope/vim-surround'
 
 call plug#end()
 
+packadd! editorconfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " FZF
 if isdirectory(expand('~').'/.dotfiles/.config/vim/plugged/fzf')
@@ -87,3 +89,4 @@ call textobj#user#plugin('datetime', {
 
 " vim-fugitive
 nnoremap <Leader>git :Git<CR>
+

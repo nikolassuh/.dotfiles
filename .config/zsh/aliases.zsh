@@ -37,10 +37,6 @@ alias dls='cd $HOME/Downloads'
 alias dots='cd $DOTFILES_DIR'
 alias work='cd $HOME/projects'
 
-# helpers
-alias ip='echo "My IP Address:" && curl ifconfig.me && echo ""'
-alias QQ='exit'
-
 # python
 alias python='python3'
 
@@ -52,4 +48,9 @@ alias vrc='vim $CONFIGS_DIR/vim/vimrc'
 alias als='vim $ZSH_CONFIGS_DIR/aliases.zsh'
 alias zrc='vim $ZSH_CONFIGS_DIR/.zshrc'
 alias sozsh='source $ZSH_CONFIGS_DIR/.zshrc'
+
+# helpers
+alias ip='echo "My IP Address:" && curl ifconfig.me && echo ""'
+alias QQ='exit'
+alias cpeditorconfig='cp $CONFIGS_DIR/stylers/.editorconfig .'
 

@@ -15,10 +15,19 @@ trim_trailing_whitespace = true
 indent_size = 4
 tab_width = 4
 
+# Minified files shouldn't be changed
+[**.min.*]
+indent_style = ignore
+insert_final_newline = ignore
+
 [*.md]
 indent_size = 4
 tab_width = 4
 trim_trailing_whitespace = false
 
 [Makefile]
+indent_style = tab
+
+# Batch files use tabs for indentation
+[*.bat]
 indent_style = tab
